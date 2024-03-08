@@ -19,15 +19,12 @@ app.use(express.json({
 
 app.post('/agent', async (req, res) => {
     console.log('/agent called');
-    console.log("body=" + JSON.stringify(req.body));
     try{
         const host = req.headers["target_host"];
         const type = req.headers["target_type"];
         if (!host || !type)
             throw "target_host/type not set";
 
-	    console.log("host=" + host);
-	    console.log("type=" + type);
         let headers = make_headers(req.body.headers);
         let response;
         if (type == "get") {
