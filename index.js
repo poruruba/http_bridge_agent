@@ -64,12 +64,7 @@ app.use('/', proxy((req) => {
         if (!host)
             throw "target_host not set";
         var location = new URL(host);
-        var path = location.pathname;
-        if( location.search )
-        	path += location.search;
-        if( location.hash )
-        	path += location.hash;
-        return path;
+        return location.pathname + location.search + location.hash;
     }
 }));
 
