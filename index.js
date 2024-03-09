@@ -56,7 +56,6 @@ app.use('/', proxy((req) => {
     if (!host)
         throw "target_host not set";
     var location = new URL(host);
-    console.log(location.protocol + "//" + location.host);
     return location.protocol + "//" + location.host;
 }, {
     parseReqBody: false,
