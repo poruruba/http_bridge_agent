@@ -65,6 +65,10 @@ app.use('/', proxy((req) => {
             throw "target_host not set";
         var location = new URL(host);
         return location.pathname + location.search + location.hash;
+//    },
+//    userResHeaderDecorator(headers, userReq, userRes, proxyReq, proxyRes) {
+//      headers['access-control-allow-origin'] = userReq.headers["origin"];
+//      return headers;
     }
 }));
 
