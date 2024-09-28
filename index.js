@@ -102,9 +102,9 @@ async function do_get(url, qs, headers) {
 }
 
 async function do_post_formdata(url, qs, params, headers) {
-    var params = new URLSearchParams(qs).toString();
+    var _params = new URLSearchParams(qs).toString();
     var searchs = new URL(url).searchParams.toString();
-    var postfix = params ? (searchs ? '&' + params : '?' + params) : "";
+    var postfix = _params ? (searchs ? '&' + _params : '?' + _params) : "";
     const body = Object.entries(params).reduce((l, [k, v]) => {
         l.append(k, v);
         return l;
